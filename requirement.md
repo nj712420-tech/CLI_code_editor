@@ -367,3 +367,21 @@ order (>= P10 considered optional/stretch).
 4. New behavior documented in `README.md` / `docs/`.
 5. No secrets introduced; config redaction verified.
 6. A live smoke test demonstrates the phase's headline feature (where network exists).
+
+## Phase 11 — Deep Architectural Safety & Runtime Determinism (Roadmap)
+
+**Goal:** Transition the agent from a static file editor into a state-driven workflow engine with semantic understanding, runtime debugging capabilities, and zero-trust isolated execution.
+
+### Features
+- F11.1 Ephemeral Sandboxing: Expand upon Phase 9 sandboxing options by routing all script executions and linting through isolated, ephemeral microVMs (e.g., E2B or Firecracker) to prevent host environment pollution.
+- F11.2 Deterministic Verification Loop: Enhance the Phase 4 auto-repair loop; the AI proposes diffs, an isolated runner applies them, runs tests/linters, and feeds failures back to the agent without human intervention until the build is green.
+- F11.3 Semantic Context via AST/LSP: Upgrade the Phase 2 file tools by providing the agent with headless Language Server Protocol (LSP) and `tree-sitter` access for precise symbol resolution and refactoring.
+- F11.4 Runtime Debugging Protocol (DAP): Allow the agent to dynamically set breakpoints, step through code, and inspect memory states during test failures using Python's `debugpy`.
+- F11.5 Phased State Machines: Implement a strict Investigation -> Execution -> Verification state graph to prevent scope overreach and restrict tool access dynamically based on the current phase.
+
+### Architecture
+```text
+aide/core/lsp_client.py    # Headless LSP communication for semantic awareness
+aide/core/dap_client.py    # Debug adapter integration for runtime state inspection
+aide/sandbox/microvm.py    # Ephemeral microVM sandbox runner
+aide/core/state_graph.py   # State machine for phased execution boundaries

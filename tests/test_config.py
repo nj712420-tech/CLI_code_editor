@@ -1,5 +1,5 @@
-from aide.config import load_config
-from aide.core.errors import ConfigError
+from truecode.config import load_config
+from truecode.core.errors import ConfigError
 
 
 def test_defaults_env(monkeypatch, tmp_path):

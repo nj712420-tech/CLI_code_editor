@@ -310,15 +310,15 @@ pytest tests/ -v
 ### Linting & Formatting
 
 ```bash
-ruff check aide/      # Lint
-ruff format aide/     # Format
-mypy aide/            # Type check (strict)
+ruff check truecode/      # Lint
+ruff format truecode/     # Format
+mypy truecode/            # Type check (strict)
 ```
 
 ### Project Structure
 
 ```
-aide/
+truecode/
 ├── cli.py              # CLI entry point
 ├── config.py           # Configuration loading
 ├── core/
@@ -395,7 +395,7 @@ rm -rf .venv
 
 ### Project-Local Config
 
-Create `.aide.toml` in your project root to override settings per-project:
+Create `.truecode.toml` in your project root to override settings per-project:
 
 ```toml
 [api]

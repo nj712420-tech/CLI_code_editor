@@ -7,10 +7,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from aide.core import file_tools
-from aide.core.errors import AideError
-from aide.core.runner import run_command
-from aide.core.workspace import Workspace
+from truecode.core import file_tools
+from truecode.core.errors import AideError
+from truecode.core.runner import run_command
+from truecode.core.workspace import Workspace
 
 JSONSchema = dict[str, Any]
 

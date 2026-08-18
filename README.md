@@ -1,4 +1,4 @@
-# aide
+# Truecode
 
 A terminal-native, AI-powered code editor. Talk to an OpenAI-compatible model from
 inside your own workspace — stream responses into a Textual TUI, and keep every

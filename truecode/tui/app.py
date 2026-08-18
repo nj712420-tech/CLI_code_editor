@@ -12,19 +12,19 @@ from textual.binding import Binding
 from textual.containers import Vertical
 from textual.widgets import Footer, Static
 
-from aide.config import load_config
-from aide.core import file_tools
-from aide.core.agent import AgentEvent, AgentLoop
-from aide.core.errors import AideError
-from aide.core.request_handler import RequestHandler
-from aide.core.tool_registry import default_registry
-from aide.core.workspace import workspace_from
-from aide.providers import ToolCall
-from aide.tui.screens import PermissionScreen
-from aide.tui.widgets.chat_log import ChatLog, CustomSelectionCopied
-from aide.tui.widgets.diff_panel import DiffScreen
-from aide.tui.widgets.input_bar import InputBar
-from aide.tui.widgets.status_bar import StatusBar
+from truecode.config import load_config
+from truecode.core import file_tools
+from truecode.core.agent import AgentEvent, AgentLoop
+from truecode.core.errors import AideError
+from truecode.core.request_handler import RequestHandler
+from truecode.core.tool_registry import default_registry
+from truecode.core.workspace import workspace_from
+from truecode.providers import ToolCall
+from truecode.tui.screens import PermissionScreen
+from truecode.tui.widgets.chat_log import ChatLog, CustomSelectionCopied
+from truecode.tui.widgets.diff_panel import DiffScreen
+from truecode.tui.widgets.input_bar import InputBar
+from truecode.tui.widgets.status_bar import StatusBar
 
 
 class AideApp(App[None]):
@@ -108,7 +108,7 @@ class AideApp(App[None]):
         self.workspace = workspace_from(self.project_dir)
 
         if resume_session:
-            from aide.core.history import SessionManager
+            from truecode.core.history import SessionManager
 
             mgr = SessionManager()
             self.handler = RequestHandler(self.config)
@@ -247,8 +247,8 @@ class AideApp(App[None]):
         if not path:
             return
 
-        from aide.core.diff import FileDiff
-        from aide.core.workspace import workspace_from
+        from truecode.core.diff import FileDiff
+        from truecode.core.workspace import workspace_from
 
         ws = workspace_from(self.project_dir)
         try:
@@ -327,7 +327,7 @@ class AideApp(App[None]):
             if not arg:
                 # Show current model and available presets
                 provider = self.config.api.provider
-                from aide.config import get_model_presets
+                from truecode.config import get_model_presets
 
                 models = get_model_presets(provider)
                 presets = models.get("presets", {})
@@ -379,7 +379,7 @@ class AideApp(App[None]):
         elif cmd == "/touched":
             log.append_info(self._render_touched())
         elif cmd == "/sessions":
-            from aide.core.history import SessionManager
+            from truecode.core.history import SessionManager
 
             mgr = SessionManager()
             sessions = mgr.list_sessions()
@@ -415,7 +415,7 @@ class AideApp(App[None]):
     async def _switch_model(self, arg: str, log: ChatLog) -> None:
         """Switch to a different model/preset."""
         parts = arg.split(maxsplit=1)
-        from aide.config import apply_model_preset, get_model_presets
+        from truecode.config import apply_model_preset, get_model_presets
 
         if len(parts) == 1:
             # Single argument: preset name for current provider

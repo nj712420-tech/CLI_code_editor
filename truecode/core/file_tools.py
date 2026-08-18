@@ -9,9 +9,9 @@ import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from aide.core.diff import FileDiff
-from aide.core.errors import AmbiguousMatchError, FileNotFound_, NoMatchError
-from aide.core.workspace import Workspace
+from truecode.core.diff import FileDiff
+from truecode.core.errors import AmbiguousMatchError, FileNotFound_, NoMatchError
+from truecode.core.workspace import Workspace
 
 
 @dataclass
@@ -136,7 +136,7 @@ def edit_file(
     (AmbiguousMatchError). Applies only when dry_run=False, backing up
     the pre-edit file to .aide-backup/.
     """
-    from aide.core.diff import FileDiff
+    from truecode.core.diff import FileDiff
 
     path = ws.require_file(rel_path)
     content = path.read_text(encoding="utf-8")

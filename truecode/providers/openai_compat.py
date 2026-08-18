@@ -12,16 +12,16 @@ from typing import Any
 
 import httpx
 
-from aide.config import ApiConfig
-from aide.core.errors import (
+from truecode.config import ApiConfig
+from truecode.core.errors import (
     AuthenticationError,
     ProviderError,
     RateLimitError,
     ServerError,
     TimeoutError_,
 )
-from aide.providers.base import ChatMessage, Provider, StreamEvent, ToolCall, ToolSchema, Usage
-from aide.providers.retry import retry_stream
+from truecode.providers.base import ChatMessage, Provider, StreamEvent, ToolCall, ToolSchema, Usage
+from truecode.providers.retry import retry_stream
 
 _SSE_DATA = "data:"
 
@@ -190,11 +190,11 @@ def factory(config: ApiConfig) -> Provider:
     """Main provider factory - dispatches based on config.provider."""
     provider_type = getattr(config, "provider", "openai_compat")
     if provider_type == "anthropic":
-        from aide.providers.anthropic import factory as anthropic_factory
+        from truecode.providers.anthropic import factory as anthropic_factory
 
         return anthropic_factory(config)
     elif provider_type == "ollama":
-        from aide.providers.ollama import factory as ollama_factory
+        from truecode.providers.ollama import factory as ollama_factory
 
         return ollama_factory(config)
     else:

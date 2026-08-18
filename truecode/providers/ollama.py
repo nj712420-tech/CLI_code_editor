@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from aide.config import ApiConfig
-from aide.providers.base import Provider
-from aide.providers.openai_compat import OpenAICompatibleProvider
+from truecode.config import ApiConfig
+from truecode.providers.base import Provider
+from truecode.providers.openai_compat import OpenAICompatibleProvider
 
 
 class OllamaProvider(OpenAICompatibleProvider):

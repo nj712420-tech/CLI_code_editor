@@ -1,4 +1,4 @@
-"""Modal screens for aide."""
+"""Modal screens for truecode."""
 
 from __future__ import annotations
 

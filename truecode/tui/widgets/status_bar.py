@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from textual.widgets import Static
 
-from aide import __version__
+from truecode import __version__
 
 
 class StatusBar(Static):

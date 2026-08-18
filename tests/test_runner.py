@@ -1,5 +1,5 @@
-from aide.core.runner import run_command
-from aide.core.workspace import workspace_from
+from truecode.core.runner import run_command
+from truecode.core.workspace import workspace_from
 
 
 def test_run_command_success(tmp_path):

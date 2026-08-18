@@ -6,7 +6,7 @@ import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from aide.core.errors import FileNotFound_, WorkspaceError
+from truecode.core.errors import FileNotFound_, WorkspaceError
 
 DENY_LIST: frozenset[str] = frozenset({".git", "node_modules", ".aide-backup", "__pycache__"})
 

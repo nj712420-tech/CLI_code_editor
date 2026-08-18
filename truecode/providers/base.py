@@ -8,7 +8,7 @@ from collections.abc import AsyncIterator
 from dataclasses import dataclass, field
 from typing import Any, Literal
 
-from aide.config import ApiConfig
+from truecode.config import ApiConfig
 
 Role = Literal["system", "user", "assistant", "tool"]
 

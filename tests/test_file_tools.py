@@ -1,5 +1,5 @@
-from aide.core.errors import AmbiguousMatchError, NoMatchError
-from aide.core.file_tools import (
+from truecode.core.errors import AmbiguousMatchError, NoMatchError
+from truecode.core.file_tools import (
     edit_file,
     glob_files,
     ls_tree,
@@ -7,7 +7,7 @@ from aide.core.file_tools import (
     search_files,
     write_file,
 )
-from aide.core.workspace import Workspace
+from truecode.core.workspace import Workspace
 
 
 def make_tree(root, spec: dict[str, str]) -> None:

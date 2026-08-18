@@ -1,6 +1,6 @@
-from aide.config import ApiConfig, Config, LogConfig, UiConfig
-from aide.core.request_handler import RequestHandler
-from aide.providers.base import ChatMessage, Provider, StreamEvent, Usage
+from truecode.config import ApiConfig, Config, LogConfig, UiConfig
+from truecode.core.request_handler import RequestHandler
+from truecode.providers.base import ChatMessage, Provider, StreamEvent, Usage
 
 
 class FakeProvider(Provider):
@@ -39,7 +39,7 @@ def _cfg(tmp_path):
 
 async def test_ask_records_and_returns(tmp_path, monkeypatch):
     monkeypatch.setattr(
-        "aide.core.request_handler.factory", lambda cfg: FakeProvider(["hello world"])
+        "truecode.core.request_handler.factory", lambda cfg: FakeProvider(["hello world"])
     )
     handler = RequestHandler(_cfg(tmp_path))
     out = await handler.ask("say hi")
@@ -54,7 +54,7 @@ async def test_ask_records_and_returns(tmp_path, monkeypatch):
 
 async def test_system_preamble_prepended(tmp_path, monkeypatch):
     fake = FakeProvider(["done"])
-    monkeypatch.setattr("aide.core.request_handler.factory", lambda cfg: fake)
+    monkeypatch.setattr("truecode.core.request_handler.factory", lambda cfg: fake)
     handler = RequestHandler(_cfg(tmp_path))
     await handler.ask("go")
     await handler.aclose()

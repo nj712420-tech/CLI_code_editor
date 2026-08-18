@@ -9,14 +9,14 @@ from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
 from typing import Any, Literal
 
-from aide.config import Config
-from aide.core.errors import AmbiguousMatchError, NoMatchError
-from aide.core.history import SessionHistory
-from aide.core.request_handler import PREAMBLE
-from aide.core.tool_registry import AskUser, ToolRegistry
-from aide.core.turn_cost import TokenLedger
-from aide.providers import ChatMessage, Provider, ToolCall, Usage
-from aide.providers.openai_compat import factory
+from truecode.config import Config
+from truecode.core.errors import AmbiguousMatchError, NoMatchError
+from truecode.core.history import SessionHistory
+from truecode.core.request_handler import PREAMBLE
+from truecode.core.tool_registry import AskUser, ToolRegistry
+from truecode.core.turn_cost import TokenLedger
+from truecode.providers import ChatMessage, Provider, ToolCall, Usage
+from truecode.providers.openai_compat import factory
 
 logger = logging.getLogger(__name__)
 

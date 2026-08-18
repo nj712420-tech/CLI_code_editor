@@ -3,10 +3,10 @@ import json
 import httpx
 import pytest
 
-from aide.config import ApiConfig
-from aide.core.errors import AuthenticationError, RateLimitError
-from aide.providers.base import ChatMessage
-from aide.providers.openai_compat import OpenAICompatibleProvider
+from truecode.config import ApiConfig
+from truecode.core.errors import AuthenticationError, RateLimitError
+from truecode.providers.base import ChatMessage
+from truecode.providers.openai_compat import OpenAICompatibleProvider
 
 
 def _cfg(**kw) -> ApiConfig:

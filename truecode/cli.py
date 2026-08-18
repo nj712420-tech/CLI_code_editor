@@ -8,8 +8,8 @@ import sys
 from collections.abc import Coroutine
 from typing import Any
 
-from aide import __version__
-from aide.config import config_dir, load_config, scaffold_config
+from truecode import __version__
+from truecode.config import config_dir, load_config, scaffold_config
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -69,7 +69,7 @@ def main(argv: list[str] | None = None) -> None:
         return
 
     if args.command == "chat":
-        from aide.core.request_handler import get_handler
+        from truecode.core.request_handler import get_handler
 
         config = load_config()
         if args.model:
@@ -90,12 +90,12 @@ def main(argv: list[str] | None = None) -> None:
         sys.exit(_run(run()))
 
     if args.command == "shell":
-        from aide.tui.app import main as tui_main
+        from truecode.tui.app import main as tui_main
 
         sys.exit(_run(tui_main(args.project_dir)))
 
     if args.command == "undo":
-        from aide.core.workspace import workspace_from
+        from truecode.core.workspace import workspace_from
 
         ws = workspace_from(args.project_dir if hasattr(args, "project_dir") else ".")
         if args.list:
@@ -122,7 +122,7 @@ def main(argv: list[str] | None = None) -> None:
             sys.exit(1)
 
     if args.command == "history":
-        from aide.core.history import SessionManager
+        from truecode.core.history import SessionManager
 
         mgr = SessionManager()
         sessions = mgr.list_sessions()
@@ -139,7 +139,7 @@ def main(argv: list[str] | None = None) -> None:
             )
 
     if args.command == "resume":
-        from aide.tui.app import main as tui_main
+        from truecode.tui.app import main as tui_main
 
         sys.exit(_run(tui_main(".", resume_session=args.session_id)))
 

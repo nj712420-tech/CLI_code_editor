@@ -1,10 +1,10 @@
 import asyncio
 
-from aide.config import ApiConfig, Config, LogConfig, UiConfig
-from aide.core.agent import AgentLoop
-from aide.core.tool_registry import default_registry
-from aide.core.workspace import workspace_from
-from aide.providers.base import StreamEvent, ToolCall, Usage
+from truecode.config import ApiConfig, Config, LogConfig, UiConfig
+from truecode.core.agent import AgentLoop
+from truecode.core.tool_registry import default_registry
+from truecode.core.workspace import workspace_from
+from truecode.providers.base import StreamEvent, ToolCall, Usage
 
 
 def _config() -> Config:

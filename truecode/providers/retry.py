@@ -7,7 +7,7 @@ import random
 from collections.abc import AsyncIterator, Awaitable, Callable
 from typing import Any, TypeVar
 
-from aide.core.errors import ProviderError, RateLimitError, ServerError
+from truecode.core.errors import ProviderError, RateLimitError, ServerError
 
 T = TypeVar("T")
 StreamFactory = Callable[[], AsyncIterator[Any]]

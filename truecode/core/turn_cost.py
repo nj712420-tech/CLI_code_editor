@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from aide.providers.base import Usage
+from truecode.providers.base import Usage
 
 
 @dataclass

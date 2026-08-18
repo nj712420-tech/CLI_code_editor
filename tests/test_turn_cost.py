@@ -1,5 +1,5 @@
-from aide.core.turn_cost import TokenLedger
-from aide.providers.base import Usage
+from truecode.core.turn_cost import TokenLedger
+from truecode.providers.base import Usage
 
 
 def test_ledger_records_and_sums():

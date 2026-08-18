@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from aide.config import state_dir
-from aide.core.history import SessionHistory
-from aide.providers.base import Usage
+from truecode.config import state_dir
+from truecode.core.history import SessionHistory
+from truecode.providers.base import Usage
 
 
 def test_messages_round_trip(tmp_path: Path):

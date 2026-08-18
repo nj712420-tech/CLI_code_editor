@@ -1,7 +1,7 @@
 import pytest
 
-from aide.core.tool_registry import AskUser, ToolRegistry, ToolSpec, default_registry
-from aide.core.workspace import workspace_from
+from truecode.core.tool_registry import AskUser, ToolRegistry, ToolSpec, default_registry
+from truecode.core.workspace import workspace_from
 
 
 @pytest.fixture

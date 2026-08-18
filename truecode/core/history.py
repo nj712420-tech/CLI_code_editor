@@ -8,8 +8,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, cast
 
-from aide.config import state_dir
-from aide.providers.base import ChatMessage, Role, StreamEvent, ToolCall, Usage
+from truecode.config import state_dir
+from truecode.providers.base import ChatMessage, Role, StreamEvent, ToolCall, Usage
 
 
 class SessionHistory:

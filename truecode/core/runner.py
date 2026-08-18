@@ -5,7 +5,7 @@ from __future__ import annotations
 import subprocess
 from pathlib import Path
 
-from aide.core.errors import AideError
+from truecode.core.errors import AideError
 
 DEFAULT_TIMEOUT = 30.0
 MAX_OUTPUT_CHARS = 4000

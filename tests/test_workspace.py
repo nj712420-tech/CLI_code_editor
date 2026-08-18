@@ -1,5 +1,5 @@
-from aide.core.errors import FileNotFound_, WorkspaceError
-from aide.core.workspace import Workspace, workspace_from
+from truecode.core.errors import FileNotFound_, WorkspaceError
+from truecode.core.workspace import Workspace, workspace_from
 
 
 def make_tree(root, spec: dict[str, str]) -> None:

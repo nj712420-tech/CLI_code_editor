@@ -9,15 +9,15 @@ from typing import Any
 
 import httpx
 
-from aide.config import ApiConfig
-from aide.core.errors import (
+from truecode.config import ApiConfig
+from truecode.core.errors import (
     AuthenticationError,
     ProviderError,
     RateLimitError,
     ServerError,
     TimeoutError_,
 )
-from aide.providers.base import ChatMessage, Provider, StreamEvent, ToolCall, ToolSchema, Usage
+from truecode.providers.base import ChatMessage, Provider, StreamEvent, ToolCall, ToolSchema, Usage
 
 
 class AnthropicProvider(Provider):

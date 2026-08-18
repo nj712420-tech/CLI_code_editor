@@ -2,7 +2,7 @@
 
 Order of precedence (lowest → highest):
   1. built-in defaults
-  2. project-level `.aide.toml` (if present)
+  2. project-level `.truecode.toml` (if present)
   3. user-level `~/.config/aide/config.toml`
   4. environment variables AIDE_*
 """
@@ -15,7 +15,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from aide.core.errors import ConfigError
+from truecode.core.errors import ConfigError
 
 APP_NAME = "aide"
 CONFIG_DIR_NAME = "config"
@@ -105,10 +105,10 @@ def state_dir() -> Path:
 
 
 def project_config_path(project_dir: Path | None = None) -> Path | None:
-    """Project-local `.aide.toml`, if any, walking up from `project_dir`."""
+    """Project-local `.truecode.toml`, if any, walking up from `project_dir`."""
     start = project_dir or Path.cwd()
     for directory in (start, *start.parents):
-        candidate = directory / ".aide.toml"
+        candidate = directory / ".truecode.toml"
         if candidate.is_file():
             return candidate
     return None
@@ -183,7 +183,7 @@ def load_config(project_dir: Path | None = None) -> Config:
 
 
 def scaffold_config(force: bool = False) -> Path:
-    """Write `.aide.toml`-style user config if missing. Returns the path written."""
+    """Write `.truecode.toml`-style user config if missing. Returns the path written."""
     path = config_dir() / "config.toml"
     if path.exists() and not force:
         return path
@@ -226,7 +226,7 @@ def scaffold_config(force: bool = False) -> Path:
 
 def get_model_presets(provider: str | None = None) -> dict[str, Any]:
     """Get model presets for a provider (or all providers if None)."""
-    from aide.config import load_config
+    from truecode.config import load_config
 
     config = load_config()
     models: dict[str, Any] = config.__dict__.get("_merged_models", DEFAULTS["models"])

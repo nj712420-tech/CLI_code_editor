@@ -21,7 +21,7 @@ dev = [
 ]
 
 [project.scripts]
-truecode = "aide.cli:main"
+truecode = "truecode.cli:main"
 
 [build-system]
 requires = ["setuptools>=68"]
@@ -29,7 +29,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["aide*"]
+include = ["truecode*"]
 
 [tool.ruff]
 line-length = 100
@@ -42,7 +42,7 @@ ignore = ["B008"]
 [tool.mypy]
 python_version = "3.11"
 strict = true
-files = ["aide"]
+files = ["truecode"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

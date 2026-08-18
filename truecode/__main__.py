@@ -1,4 +1,4 @@
-from aide.cli import main
+from truecode.cli import main
 
 if __name__ == "__main__":
     main()

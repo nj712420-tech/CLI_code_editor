@@ -9,10 +9,10 @@ from __future__ import annotations
 import logging
 from collections.abc import AsyncIterator, Callable
 
-from aide.config import Config
-from aide.core.history import SessionHistory
-from aide.providers import ChatMessage, Provider, StreamEvent
-from aide.providers.openai_compat import factory
+from truecode.config import Config
+from truecode.core.history import SessionHistory
+from truecode.providers import ChatMessage, Provider, StreamEvent
+from truecode.providers.openai_compat import factory
 
 logger = logging.getLogger(__name__)
 
@@ -92,7 +92,7 @@ class RequestHandler:
 
 
 def get_handler(config: Config | None = None) -> RequestHandler:
-    from aide.config import load_config
+    from truecode.config import load_config
 
     if config is None:
         config = load_config()
